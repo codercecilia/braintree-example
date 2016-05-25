@@ -75,6 +75,7 @@ describe('Checkouts show page', function () {
         expect(res.text).to.contain(transaction.type);
         expect(res.text).to.contain(transaction.amount);
         expect(res.text).to.contain(transaction.status);
+        expect(res.text).to.contain(transaction.stati);
         expect(res.text).to.contain(transaction.creditCard.bin);
         expect(res.text).to.contain(transaction.creditCard.last4);
         expect(res.text).to.contain(transaction.creditCard.cardType);
