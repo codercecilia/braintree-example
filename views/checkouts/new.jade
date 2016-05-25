@@ -3,8 +3,9 @@ extends ../layout
 block content
   .wrapper: .checkout.container: .content
     header
-      h1 Checkout Page #[br] 
+      h1 Checkout Page 
       p Make a test payment with Braintree using PayPal or a card
+      h1 Your Information
       section
         label(for="name")
           span.input-label Name
@@ -18,6 +19,8 @@ block content
           span.input-label Phone Number
           .input-wrapper.name-wrapper
           input#phone(name="phone" type="tel" min="10" placeholder="Your Phone Number")
+      h1 Your Coderkid
+      section
         label(for="coderkidname")
           span.input-label Coderkid Name
           .input-wrapper.name-wrapper
