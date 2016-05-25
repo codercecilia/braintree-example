@@ -1,5 +1,6 @@
 'use strict';
 
+// nitty gritty //
 var express = require('express');
 var braintree = require('braintree');
 var router = express.Router(); // eslint-disable-line new-cap
