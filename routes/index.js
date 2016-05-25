@@ -72,6 +72,24 @@ router.post('/checkouts', function (req, res) {
   var transactionErrors;
   var amount = req.body.amount; // In production you should not take amounts directly from clients
   var nonce = req.body.payment_method_nonce;
+  var firstName = req.body.firstName;
+  var lastName = req.body.lastName;
+  var email = req.body.email;
+  
+  gateway.customer.create({
+  firstName: firstName,
+  lastName: lastName,
+  //cardholderName: firstName + " " + lastName,
+  email: email
+}, function (err, result) {
+    if (result.success || result.customer) {
+      res.redirect('checkouts/' + result.transaction.id);
+    } else {
+      transactionErrors = result.errors.deepErrors();
+      req.flash('error', {msg: formatErrors(transactionErrors)});
+      res.redirect('checkouts/new');
+    }
+  });
 
   gateway.transaction.sale({
     amount: amount,
