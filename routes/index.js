@@ -77,7 +77,6 @@ router.post('/checkouts', function (req, res) {
   gateway.customer.create({
   firstName: "Christy",
   lastName: "James",
-  cardholderName: cardholderName,
   email: "christy.james@mailinator.com"
 },function (err, result) {
   result.success;
@@ -89,6 +88,7 @@ router.post('/checkouts', function (req, res) {
 
   gateway.transaction.sale({
     amount: amount,
+    cardholderName: cardholderName,
     paymentMethodNonce: nonce
   }, function (err, result) {
     if (result.success || result.transaction) {
