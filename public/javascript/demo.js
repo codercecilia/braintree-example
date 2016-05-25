@@ -1,6 +1,5 @@
 'use strict';
 
-// This function is used throughout //
 function Demo(config) {
   this.config = config;
   this.config.development = config.development || false;
