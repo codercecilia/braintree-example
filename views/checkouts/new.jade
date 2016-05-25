@@ -5,10 +5,14 @@ block content
     header
       h1 Your Information
       section
-        label(for="name")
+        label(for="firstName")
           span.input-label Name
           .input-wrapper.name-wrapper
-          input#name(name="name", type="text" placeholder="Your Name")
+          input#firstName(name="firstName", type="text" placeholder="Your First Name")
+        label(for="lastName")
+          span.input-label Name
+          .input-wrapper.name-wrapper
+          input#lastName(name="lastName", type="text" placeholder="Your Last Name")
         label(for="email")
           span.input-label Email
           .input-wrapper.name-wrapper
