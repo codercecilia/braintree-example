@@ -3,8 +3,6 @@ extends ../layout
 block content
   .wrapper: .checkout.container: .content
     header
-      h1 Checkout Page 
-      p Make a test payment with Braintree using PayPal or a card
       h1 Your Information
       section
         label(for="name")
@@ -33,7 +31,8 @@ block content
           span.input-label Initial Course
           .input-wrapper.name-wrapper
           input#initialCourse(name="initialCourse" type="text" placeholder="Initial Course")
-          
+      
+      h1 Checkout     
     form#payment-form(action="/checkouts", method="post")
       section
         .bt-drop-in-wrapper
