@@ -81,15 +81,13 @@ router.post('/checkouts', function (req, res) {
   lastName: lastName,
   //cardholderName: firstName + " " + lastName,
   email: email
-}, function (err, result) {
-    if (result.success || result.customer) {
-      res.redirect('checkouts/' + result.transaction.id);
-    } else {
-      transactionErrors = result.errors.deepErrors();
-      req.flash('error', {msg: formatErrors(transactionErrors)});
-      res.redirect('checkouts/new');
-    }
-  });
+},function (err, result) {
+  result.success;
+  // true
+
+  result.customer.id;
+  // e.g. 494019
+});
 
   gateway.transaction.sale({
     amount: amount,
