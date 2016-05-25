@@ -3,11 +3,7 @@ extends ../layout
 block content
   .wrapper: .checkout.container: .content
     header
-    // This is the header for main page //
       h1 Checkout Page #[br] 
-      h2 Your Information 
-      p Please input your information here #[br]
-      h2 Credit Card Info
       p Make a test payment with Braintree using PayPal or a card
 
     form#payment-form(action="/checkouts", method="post")
