@@ -72,15 +72,13 @@ router.post('/checkouts', function (req, res) {
   var transactionErrors;
   var amount = req.body.amount; // In production you should not take amounts directly from clients
   var nonce = req.body.payment_method_nonce;
-  var firstName = req.body.firstName;
-  var lastName = req.body.lastName;
-  var email = req.body.email;
+  var cardholderName = req.body.cardholderName;
   
   gateway.customer.create({
-  firstName: firstName,
-  lastName: lastName,
-  //cardholderName: firstName + " " + lastName,
-  email: email
+  firstName: "Christy",
+  lastName: "James",
+  cardholderName: cardholderName,
+  email: "christy.james@mailinator.com"
 },function (err, result) {
   result.success;
   // true
