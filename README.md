@@ -23,7 +23,7 @@ An example Braintree integration for Node in the Express framework.
 
 You can deploy this app directly to Heroku to see the app live. Skip the setup instructions above and click the button below. This will walk you through getting this app up and running on Heroku in minutes.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/codercecilia/braintree-example&env[BT_ENVIRONMENT]=sandbox)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/codercecilia/braintree-example&env[BT_ENVIRONMENT]=sandbox&env[BT_MERCHANT_ID]='kdwy5gcnp2q3wk64'&env[BT_PUBLIC_KEY]='zmjjdvqg3g97dxwx'&env[BT_PRIVATE_KEY]='0d045cbc6e7f3f22122818f1d13620ae')
 
 ## Running tests
 
