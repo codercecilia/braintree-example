@@ -5,7 +5,16 @@ block content
     header
       h1 Checkout Page #[br] 
       p Make a test payment with Braintree using PayPal or a card
-
+    form#dont-break(action="/checkouts", method="post")
+      section
+        .bt-drop-in-wrapper
+          #bt-dropin
+          
+        label(for="name")
+          span.input-label Name
+          .input-wrapper.amount-wrapper
+          input#name(name="name", type="text" placeholder="Your Name")
+          
     form#payment-form(action="/checkouts", method="post")
       section
         .bt-drop-in-wrapper
