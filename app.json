@@ -3,7 +3,7 @@
   "description": "An example Braintree integration for Express",
   "keywords": ["braintree", "node", "nodejs", "express"],
   "website": "https://www.braintreepayments.com",
-  "repository": "https://github.com/braintree/braintree_express_example",
+  "repository": "https://github.com/codercecilia/braintree-example",
   "logo": "https://avatars1.githubusercontent.com/u/3453",
   "success_url": "/",
   "env": {
