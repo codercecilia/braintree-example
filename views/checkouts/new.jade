@@ -3,7 +3,14 @@ extends ../layout
 block content
   .wrapper: .checkout.container: .content
     header
-      h1 Hi, #[br] Let's test a transaction
+    // This is the header for main page //
+      h1 Checkout Page #[br] 
+      h2 Your Information 
+      p Please input your information here #[br]
+      // New form for client info //
+      
+      // //
+      h2 Credit Card Info
       p Make a test payment with Braintree using PayPal or a card
 
     form#payment-form(action="/checkouts", method="post")
@@ -17,11 +24,12 @@ block content
             input#amount(name="amount" type="tel" min="1" placeholder="Amount" value="10")
 
       button.button(type="submit")
-        span Test Transaction
+        span Complete Transaction
 
   script(src="https://js.braintreegateway.com/v2/braintree.js")
   script.
     (function () {
+    // checkout method references form#payment-form specified above and uses input//
       var checkout = new Demo({
         formID: 'payment-form'
       });
