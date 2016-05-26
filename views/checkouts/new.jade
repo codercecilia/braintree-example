@@ -65,48 +65,48 @@ block content
   script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js")
   script.
     (function DropDown(el) {
-				this.dd = el;
-				this.placeholder = this.dd.children('span');
-				this.opts = this.dd.find('ul.dropdown > li');
-				this.val = '';
-				this.index = -1;
-				this.initEvents();
-			}
-			DropDown.prototype = {
-				initEvents : function() {
-					var obj = this;
+    	this.dd = el;
+        this.placeholder = this.dd.children('span');
+        this.opts = this.dd.find('ul.dropdown > li');
+        this.val = '';
+        this.index = -1;
+        this.initEvents();
+     }
+        DropDown.prototype = {
+        	initEvents: function() {
+                var obj = this;
 
-					obj.dd.on('click', function(event){
-						$(this).toggleClass('active');
-						return false;
-					});
+                obj.dd.on('click', function(event) {
+                	$(this).toggleClass('active');
+                	return false;
+                });
 
-					obj.opts.on('click',function(){
-						var opt = $(this);
-						obj.val = opt.text();
-						obj.index = opt.index();
-						obj.placeholder.text('Gender: ' + obj.val);
-					});
-				},
-				getValue : function() {
-					return this.val;
-				},
-				getIndex : function() {
-					return this.index;
-				}
-			}
+                obj.opts.on('click', function() {
+                	var opt = $(this);
+                	obj.val = opt.text();
+                	obj.index = opt.index();
+                	obj.placeholder.text('Gender: ' + obj.val);
+                });
+            },
+            getValue: function() {
+            	return this.val;
+            },
+            getIndex: function() {
+                return this.index;
+            }
+        }
 
-			$(function() {
+        $(function() {
 
-				var dd = new DropDown( $('#dd') );
+            var dd = new DropDown($('#dd'));
 
-				$(document).click(function() {
-					// all dropdowns
-					$('.wrapper-dropdown-1').removeClass('active');
-				});
+            $(document).click(function() {
+                // all dropdowns
+                $('.wrapper-dropdown-1').removeClass('active');
+            });
 
-			});
-    
+        });
+
     )()
   script(src="https://js.braintreegateway.com/v2/braintree.js")
   script.
