@@ -76,10 +76,9 @@ router.post('/checkouts', function (req, res) {
   var startDate = new Date(Date.UTC(2016, 8, 6, 0, 0, 0));
 
   gateway.customer.create({
-  id: "customer_128",
   paymentMethodNonce: nonce,
-  firstName: "Katrina",
-  lastName: "Rogers"
+  firstName: "Carina",
+  lastName: "Stevens"
   }, function (err, result) {
     if (result.success) {
       var token = result.customer.paymentMethods[0].token;
