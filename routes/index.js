@@ -75,48 +75,56 @@ router.post('/checkouts', function (req, res) {
   var cardholderName = req.body.cardholderName;
   var startDate = new Date(Date.UTC(2016, 8, 6, 0, 0, 0));
 
-  // gateway.customer.create({
-  // id: "customer_125",
-  // paymentMethodNonce: nonce,
-  // firstName: "Katrina",
-  // lastName: "Rogers"
-  // }, function (err, result) {
-  //   result.success;
-  // });
-  
-  gateway.subscription.create({
-    paymentMethodToken: "g9zjwg",
-    planId: "four_month_membership_id",
-    firstBillingDate: startDate
+  gateway.customer.create({
+  id: "customer_126",
+  paymentMethodNonce: nonce,
+  firstName: "Katrina",
+  lastName: "Rogers"
   }, function (err, result) {
-    result.success;
-  });
-  
-  gateway.transaction.sale({
-  customerId: "customer_125",
-  billing: {
-    firstName: "Paul",
-    lastName: "Smith",
-    company: "Braintree",
-    streetAddress: "1 E Main St",
-    extendedAddress: "Suite 403",
-    locality: "Chicago",
-    region: "IL",
-    postalCode: "60622",
-    countryCodeAlpha2: "US"
-  },
-  options: {
-    storeInVaultOnSuccess: true
-  },
-}, function (err, result) {
-    if (result.success || result.transaction) {
-      res.redirect('checkouts/' + result.transaction.id);
+    if (result.success) {
+      var token = result.customer.paymentMethods[0].token;
+        gateway.subscription.create({
+          paymentMethodToken: token,
+          planId: "four_month_membership_id",
+          firstBillingDate: startDate
+        }, function (err, result) {
+          result.success;
+        });
+      res.redirect('checkouts/' + result.customer.id);
     } else {
-      transactionErrors = result.errors.deepErrors();
-      req.flash('error', {msg: formatErrors(transactionErrors)});
+      // transactionErrors = result.errors.deepErrors();
+      // req.flash('error', {msg: formatErrors(transactionErrors)});
       res.redirect('checkouts/new');
     }
-});
+  });
+  
+
+  
+//   gateway.transaction.sale({
+//   customerId: "customer_125",
+//   billing: {
+//     firstName: "Paul",
+//     lastName: "Smith",
+//     company: "Braintree",
+//     streetAddress: "1 E Main St",
+//     extendedAddress: "Suite 403",
+//     locality: "Chicago",
+//     region: "IL",
+//     postalCode: "60622",
+//     countryCodeAlpha2: "US"
+//   },
+//   options: {
+//     storeInVaultOnSuccess: true
+//   },
+// }, function (err, result) {
+//     if (result.success || result.transaction) {
+//       res.redirect('checkouts/' + result.transaction.id);
+//     } else {
+//       transactionErrors = result.errors.deepErrors();
+//       req.flash('error', {msg: formatErrors(transactionErrors)});
+//       res.redirect('checkouts/new');
+//     }
+// });
 
   // gateway.transaction.sale({
   //   amount: amount,
