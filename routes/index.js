@@ -93,7 +93,7 @@ router.post('/checkouts', function (req, res) {
     planId: "four_month_membership_id",
     firstBillingDate: startDate
   }, function (err, result) {
-    result.success;
+    result.subscription.firstBillingDate;
   });
   
   gateway.transaction.sale({
