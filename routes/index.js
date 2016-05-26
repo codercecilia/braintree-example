@@ -77,8 +77,14 @@ router.post('/checkouts', function (req, res) {
 
   gateway.customer.create({
   paymentMethodNonce: nonce,
-  firstName: "Carina",
-  lastName: "Stevens"
+  firstName: "Cecilia",
+  lastName: "Ramirez",
+  customFields: {
+    childfirstname: "Isabella",
+    childlastname: "Ramirez",
+    childage: "8",
+    initialcourse: "Introduction to Scratch"
+  }
   }, function (err, result) {
     if (result.success) {
       var token = result.customer.paymentMethods[0].token;
