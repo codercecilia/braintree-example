@@ -76,7 +76,7 @@ router.post('/checkouts', function (req, res) {
   var startDate = new Date(Date.UTC(2016, 8, 6, 0, 0, 0));
 
   gateway.customer.create({
-  id: "customer_127",
+  id: "customer_128",
   paymentMethodNonce: nonce,
   firstName: "Katrina",
   lastName: "Rogers"
@@ -90,7 +90,7 @@ router.post('/checkouts', function (req, res) {
         }, function (err, result) {
           result.success;
         });
-      res.redirect('checkouts/new');
+      // res.redirect('checkouts/new');
     } else {
       // transactionErrors = result.errors.deepErrors();
       // req.flash('error', {msg: formatErrors(transactionErrors)});
@@ -99,18 +99,18 @@ router.post('/checkouts', function (req, res) {
   });
   
 
-  gateway.transaction.sale({
-    amount: amount,
-    paymentMethodNonce: nonce
-  }, function (err, result) {
-    if (result.success || result.transaction) {
-      res.redirect('checkouts/' + result.transaction.id);
-    } else {
-      transactionErrors = result.errors.deepErrors();
-      req.flash('error', {msg: formatErrors(transactionErrors)});
-      res.redirect('checkouts/new');
-    }
-  });
+  // gateway.transaction.sale({
+  //   amount: amount,
+  //   paymentMethodNonce: nonce
+  // }, function (err, result) {
+  //   if (result.success || result.transaction) {
+  //     res.redirect('checkouts/' + result.transaction.id);
+  //   } else {
+  //     transactionErrors = result.errors.deepErrors();
+  //     req.flash('error', {msg: formatErrors(transactionErrors)});
+  //     res.redirect('checkouts/new');
+  //   }
+  // });
 });
 
 module.exports = router;
