@@ -90,7 +90,7 @@ router.post('/checkouts', function (req, res) {
         }, function (err, result) {
           result.success;
         });
-      res.redirect('checkouts/' + result.customer.id);
+      res.redirect('checkouts/new');
     } else {
       // transactionErrors = result.errors.deepErrors();
       // req.flash('error', {msg: formatErrors(transactionErrors)});
