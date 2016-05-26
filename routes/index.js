@@ -75,30 +75,24 @@ router.post('/checkouts', function (req, res) {
   var cardholderName = req.body.cardholderName;
   var startDate = new Date(Date.UTC(2016, 9, 6, 0, 0, 0));
 
-  // gateway.subscription.create({
-  //   paymentMethodNonce: nonce,
-  //   planId: "four_month_membership_id",
-  //   firstBillingDate: startDate
-  // }, function (err, result) {
-  //   result.success;
-  // });
+  gateway.customer.create({
+  id: "customer_123",
+  firstName: "Katrina",
+  lastName: "Rogers"
+  }, function (err, result) {
+  });
+  
+  gateway.subscription.create({
+    paymentMethodNonce: nonce,
+    planId: "four_month_membership_id"
+  }, function (err, result) {
+    result.success;
+  });
   
   gateway.transaction.sale({
   amount: amount,
   paymentMethodNonce: nonce,
-  customer: {
-    firstName: "Drew",
-    lastName: "Smith",
-    company: "Braintree",
-    phone: "312-555-1234",
-    fax: "312-555-12346",
-    website: "http://www.example.com",
-    email: "drew@example.com"
-  },
-  planId: "four_month_membership_id",
-  // subscription: {
-  //   billingPeriodStartDate: startDate
-  // },
+  customerId: "customer_123"
   billing: {
     firstName: "Paul",
     lastName: "Smith",
