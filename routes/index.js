@@ -93,7 +93,9 @@ router.post('/checkouts', function (req, res) {
   gateway.transaction.sale({
   amount: amount,
   paymentMethodNonce: nonce,
-  customerId: "customer_123",
+  customer: {
+    id: "customer_123"
+  },
   billing: {
     firstName: "Paul",
     lastName: "Smith",
