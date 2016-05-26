@@ -97,8 +97,8 @@ router.post('/checkouts', function (req, res) {
         });
        res.redirect('/');
     } else {
-      // transactionErrors = result.errors.deepErrors();
-      // req.flash('error', {msg: formatErrors(transactionErrors)});
+      transactionErrors = result.errors.deepErrors();
+      req.flash('error', {msg: formatErrors(transactionErrors)});
       res.redirect('checkouts/new');
     }
   });
