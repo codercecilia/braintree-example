@@ -108,9 +108,14 @@ router.post('/checkouts', function (req, res) {
           planId: "four_month_membership_id",
           firstBillingDate: startDate
         }, function (err, result) {
-          result.success;
+            if (result.success || result.subscription) {
+              res.redirect('checkouts/' + result.subscription.id);
+          } else {
+              transactionErrors = result.errors.deepErrors();
+              req.flash('error', {msg: formatErrors(transactionErrors)});
+              res.redirect('checkouts/new');
+            }
         });
-      res.redirect('/');
     } else {
       res.redirect('/');
     }
