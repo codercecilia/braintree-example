@@ -99,45 +99,18 @@ router.post('/checkouts', function (req, res) {
   });
   
 
-  
-//   gateway.transaction.sale({
-//   customerId: "customer_125",
-//   billing: {
-//     firstName: "Paul",
-//     lastName: "Smith",
-//     company: "Braintree",
-//     streetAddress: "1 E Main St",
-//     extendedAddress: "Suite 403",
-//     locality: "Chicago",
-//     region: "IL",
-//     postalCode: "60622",
-//     countryCodeAlpha2: "US"
-//   },
-//   options: {
-//     storeInVaultOnSuccess: true
-//   },
-// }, function (err, result) {
-//     if (result.success || result.transaction) {
-//       res.redirect('checkouts/' + result.transaction.id);
-//     } else {
-//       transactionErrors = result.errors.deepErrors();
-//       req.flash('error', {msg: formatErrors(transactionErrors)});
-//       res.redirect('checkouts/new');
-//     }
-// });
-
-  // gateway.transaction.sale({
-  //   amount: amount,
-  //   paymentMethodNonce: nonce
-  // }, function (err, result) {
-  //   if (result.success || result.transaction) {
-  //     res.redirect('checkouts/' + result.transaction.id);
-  //   } else {
-  //     transactionErrors = result.errors.deepErrors();
-  //     req.flash('error', {msg: formatErrors(transactionErrors)});
-  //     res.redirect('checkouts/new');
-  //   }
-  // });
+  gateway.transaction.sale({
+    amount: amount,
+    paymentMethodNonce: nonce
+  }, function (err, result) {
+    if (result.success || result.transaction) {
+      res.redirect('checkouts/' + result.transaction.id);
+    } else {
+      transactionErrors = result.errors.deepErrors();
+      req.flash('error', {msg: formatErrors(transactionErrors)});
+      res.redirect('checkouts/new');
+    }
+  });
 });
 
 module.exports = router;
