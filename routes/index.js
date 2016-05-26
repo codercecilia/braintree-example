@@ -75,13 +75,13 @@ router.post('/checkouts', function (req, res) {
   var cardholderName = req.body.cardholderName;
   var startDate = new Date(Date.UTC(2016, 9, 6, 0, 0, 0));
 
-  gateway.subscription.create({
-    paymentMethodNonce: nonce,
-    planId: "four_month_membership_id",
-    firstBillingDate: startDate
-  }, function (err, result) {
-    result.success;
-  });
+  // gateway.subscription.create({
+  //   paymentMethodNonce: nonce,
+  //   planId: "four_month_membership_id",
+  //   firstBillingDate: startDate
+  // }, function (err, result) {
+  //   result.success;
+  // });
   
   gateway.transaction.sale({
   amount: amount,
@@ -93,7 +93,11 @@ router.post('/checkouts', function (req, res) {
     phone: "312-555-1234",
     fax: "312-555-12346",
     website: "http://www.example.com",
-    email: "drew@example.com"
+    email: "drew@example.com",
+    planId: "four_month_membership_id",
+    subscription: {
+      billingPeriodStartDate: startDate
+    }
   },
   billing: {
     firstName: "Paul",
