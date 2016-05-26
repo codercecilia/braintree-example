@@ -45,15 +45,15 @@ function createResultObject(subscription) {
 
   if (SUBSCRIPTION_SUCCESS_STATUSES.indexOf(status) !== -1) {
     result = {
-      header: 'Sweet Success!',
+      header: 'Welcome to Coder Kids!',
       icon: 'success',
-      message: 'Your test transaction has been successfully processed. See the Braintree API response and try again.'
+      message: 'Your membership enrollment is now complete. You should receive an email with membership details and instructions on scheduling your Coderkid. Please review membership details and contact us at info@coder-kids.com with any questions. '
     };
   } else {
     result = {
       header: 'Transaction Failed',
       icon: 'fail',
-      message: 'Your test transaction has a status of ' + status + '. See the Braintree API response and try again.'
+      message: 'There is an issue with this transaction. Please contact us at info@coder-kids.com.'
     };
   }
 
@@ -87,12 +87,13 @@ router.get('/checkouts/:id', function (req, res) {
 router.post('/checkouts', function (req, res) {
   var transactionErrors;
   // var amount = req.body.amount; // In production you should not take amounts directly from clients
+  var firstName: req.body.firstName;
   var nonce = req.body.payment_method_nonce;
   var startDate = new Date(Date.UTC(2016, 8, 6, 0, 0, 0));
 
   gateway.customer.create({
   paymentMethodNonce: nonce,
-  firstName: "Federico",
+  firstName: firstName,
   lastName: "Ramirez",
   customFields: {
     initialcourse: "Introduction to Scratch",
