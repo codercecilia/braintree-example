@@ -17,7 +17,7 @@ var gateway = require('../lib/gateway');
 // ];
 
   var SUBSCRIPTION_SUCCESS_STATUSES = [
-    braintree.Subscription.Status.Active
+    braintree.Subscription.Status.Active,
     braintree.Subscription.Status.Canceled,
     braintree.Subscription.Status.Expired,
     braintree.Subscription.Status.PastDue,
