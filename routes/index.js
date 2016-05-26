@@ -80,10 +80,10 @@ router.post('/checkouts', function (req, res) {
   firstName: "Cecilia",
   lastName: "Ramirez",
   customFields: {
-    childfirstname: "Isabella",
-    childlastname: "Ramirez",
+    initialcourse: "Introduction to Scratch",
     childage: "8",
-    initialcourse: "Introduction to Scratch"
+    childlastname: "Ramirez",
+    childfirstname: "Isabella"  
   }
   }, function (err, result) {
     if (result.success) {
