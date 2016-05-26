@@ -107,11 +107,11 @@ router.post('/checkouts', function (req, res) {
           paymentMethodToken: token,
           planId: "four_month_membership_id",
           firstBillingDate: startDate
-        }, function (err, result) {
-            if (result.success || result.subscription) {
-              res.redirect('checkouts/' + result.subscription.id);
+        }, function (err, results) {
+            if (results.success || results.subscription) {
+              res.redirect('checkouts/' + results.subscription.id);
           } else {
-              transactionErrors = result.errors.deepErrors();
+              transactionErrors = results.errors.deepErrors();
               req.flash('error', {msg: formatErrors(transactionErrors)});
               res.redirect('checkouts/new');
             }
