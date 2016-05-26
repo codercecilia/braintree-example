@@ -3,7 +3,6 @@ extends ../layout
 block content
   .wrapper: .checkout.container: .content
     header
-      form#payment-form(action="/checkouts", method="post")
       h1 Your Information
       section
         label(for="firstName")
@@ -41,7 +40,8 @@ block content
           .input-wrapper.name-wrapper
           input#initialcourse(name="initialcourse" type="text" placeholder="Initial Course")
       
-      h1 Checkout     
+      h1 Checkout 
+      form#payment-form(action="/checkouts", method="post")
       section
         .bt-drop-in-wrapper
           #bt-dropin
