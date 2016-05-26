@@ -1210,7 +1210,7 @@ section {
   -ms-transition: background-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
   -o-transition: background-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
   transition: background-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), border-color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), color 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 140ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  background-color: #5CD493;
+  background-color: #00C864;
   border: none;
   border-radius: 2px;
   display: inline-block;
@@ -1282,12 +1282,12 @@ section {
 
 .button.secondary {
   background-color: transparent;
-  border: solid 1px #5CD493;
-  color: #5CD493;
+  border: solid 1px #00C864;
+  color: #00C864;
   font-size: 16px; }
   .button.secondary:hover {
     color: #fff;
-    background-color: #5CD493; }
+    background-color: #00C864; }
 
 .button.cap {
   width: 100%;
