@@ -80,6 +80,7 @@ router.post('/checkouts', function (req, res) {
   firstName: "Katrina",
   lastName: "Rogers"
   }, function (err, result) {
+    result.success;
   });
   
   gateway.subscription.create({
@@ -92,7 +93,7 @@ router.post('/checkouts', function (req, res) {
   gateway.transaction.sale({
   amount: amount,
   paymentMethodNonce: nonce,
-  customerId: "customer_123"
+  customerId: "customer_123",
   billing: {
     firstName: "Paul",
     lastName: "Smith",
