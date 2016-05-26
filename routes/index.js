@@ -75,47 +75,45 @@ router.post('/checkouts', function (req, res) {
   var cardholderName = req.body.cardholderName;
   var startDate = new Date(Date.UTC(2016, 8, 6, 0, 0, 0));
 
-  gateway.customer.create({
-  paymentMethodNonce: nonce,
-  firstName: "Cecilia",
-  lastName: "Ramirez",
-  customFields: {
-    initialcourse: "Introduction to Scratch",
-    childage: "8",
-    childlastname: "Ramirez",
-    childfirstname: "Isabella"  
-  }
+  // gateway.customer.create({
+  // paymentMethodNonce: nonce,
+  // firstName: "Cecilia",
+  // lastName: "Ramirez",
+  // customFields: {
+  //   initialcourse: "Introduction to Scratch",
+  //   childage: "8",
+  //   childlastname: "Ramirez",
+  //   childfirstname: "Isabella"  
+  // }
+  // }, function (err, result) {
+  //   if (result.success) {
+  //     var token = result.customer.paymentMethods[0].token;
+  //       gateway.subscription.create({
+  //         paymentMethodToken: token,
+  //         planId: "four_month_membership_id",
+  //         firstBillingDate: startDate
+  //       }, function (err, result) {
+  //         result.success;
+  //       });
+  //     res.redirect('/');
+  //   } else {
+  //     res.redirect('/');
+  //   }
+  // });
+  
+
+  gateway.transaction.sale({
+    amount: amount,
+    paymentMethodNonce: nonce
   }, function (err, result) {
-    if (result.success) {
-      var token = result.customer.paymentMethods[0].token;
-        gateway.subscription.create({
-          paymentMethodToken: token,
-          planId: "four_month_membership_id",
-          firstBillingDate: startDate
-        }, function (err, result) {
-          result.success;
-        });
-       res.redirect('/');
+    if (result.success || result.transaction) {
+      res.redirect('checkouts/' + result.transaction.id);
     } else {
       transactionErrors = result.errors.deepErrors();
       req.flash('error', {msg: formatErrors(transactionErrors)});
       res.redirect('checkouts/new');
     }
   });
-  
-
-  // gateway.transaction.sale({
-  //   amount: amount,
-  //   paymentMethodNonce: nonce
-  // }, function (err, result) {
-  //   if (result.success || result.transaction) {
-  //     res.redirect('checkouts/' + result.transaction.id);
-  //   } else {
-  //     transactionErrors = result.errors.deepErrors();
-  //     req.flash('error', {msg: formatErrors(transactionErrors)});
-  //     res.redirect('checkouts/new');
-  //   }
-  // });
 });
 
 module.exports = router;
