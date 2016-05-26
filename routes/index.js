@@ -76,7 +76,7 @@ router.post('/checkouts', function (req, res) {
   var startDate = new Date(Date.UTC(2016, 9, 6, 0, 0, 0));
 
   gateway.customer.create({
-  id: "customer_123",
+  id: "customer_124",
   firstName: "Katrina",
   lastName: "Rogers"
   }, function (err, result) {
@@ -94,7 +94,7 @@ router.post('/checkouts', function (req, res) {
   amount: amount,
   paymentMethodNonce: nonce,
   customer: {
-    id: "customer_123"
+    id: "customer_124"
   },
   billing: {
     firstName: "Paul",
