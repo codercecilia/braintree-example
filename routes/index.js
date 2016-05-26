@@ -84,7 +84,7 @@ router.post('/checkouts', function (req, res) {
   // });
   
   gateway.transaction.sale({
-  // amount: amount,
+  amount: amount,
   paymentMethodNonce: nonce,
   customer: {
     firstName: "Drew",
@@ -96,9 +96,9 @@ router.post('/checkouts', function (req, res) {
     email: "drew@example.com"
   },
   planId: "four_month_membership_id",
-  subscription: {
-    billingPeriodStartDate: startDate
-  },
+  // subscription: {
+  //   billingPeriodStartDate: startDate
+  // },
   billing: {
     firstName: "Paul",
     lastName: "Smith",
