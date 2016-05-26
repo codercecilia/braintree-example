@@ -84,7 +84,7 @@ router.post('/checkouts', function (req, res) {
   // });
   
   gateway.transaction.sale({
-  amount: amount,
+  // amount: amount,
   paymentMethodNonce: nonce,
   customer: {
     firstName: "Drew",
