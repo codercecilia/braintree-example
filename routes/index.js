@@ -90,7 +90,7 @@ router.post('/checkouts', function (req, res) {
 
   gateway.subscription.create({
     paymentMethodNonce: nonce,
-    planId: four_month_membership_id,
+    planId: "four_month_membership_id",
     firstBillingDate: startDate
   }, function (err, result) {
     result.success;
