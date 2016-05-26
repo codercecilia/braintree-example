@@ -93,8 +93,11 @@ router.post('/checkouts', function (req, res) {
     phone: "312-555-1234",
     fax: "312-555-12346",
     website: "http://www.example.com",
-    email: "drew@example.com",
-    planId: "four_month_membership_id"
+    email: "drew@example.com"
+  },
+  planId: "four_month_membership_id",
+  subscription: {
+    billingPeriodStartDate: startDate
   },
   billing: {
     firstName: "Paul",
