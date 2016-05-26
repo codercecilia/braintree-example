@@ -44,8 +44,8 @@ block content
           input#childage(name="childage" type="tel"  placeholder="Age")
       section
         wrapper-demo
-        #dd.wrapper-dropdown-1(tabindex='1')
-          span Gender
+        #dd.wrapper-dropdown-3(tabindex='1')
+          span Transport
           ul.dropdown(tabindex='1')
             li
               a(href='#') Male
@@ -68,7 +68,7 @@ block content
     (function () {
         var dd = new DropDown($('#dd'));
         $(document).click(function() {
-          $('.wrapper-dropdown-1').removeClass('active');
+          $('.wrapper-dropdown-3').removeClass('active');
         });
       });
     })()
