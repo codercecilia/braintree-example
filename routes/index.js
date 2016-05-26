@@ -75,17 +75,17 @@ router.post('/checkouts', function (req, res) {
   var cardholderName = req.body.cardholderName;
   var startDate = new Date(Date.UTC(2016, 9, 6, 0, 0, 0));
 
-  gateway.customer.create({
-  id: "customer_125",
-  paymentMethodNonce: nonce,
-  firstName: "Katrina",
-  lastName: "Rogers"
-  }, function (err, result) {
-    result.success;
-  });
+  // gateway.customer.create({
+  // id: "customer_125",
+  // paymentMethodNonce: nonce,
+  // firstName: "Katrina",
+  // lastName: "Rogers"
+  // }, function (err, result) {
+  //   result.success;
+  // });
   
   gateway.subscription.create({
-    paymentMethodNonce: nonce,
+    paymentMethodToken: "g9zjwg",
     planId: "four_month_membership_id"
   }, function (err, result) {
     result.success;
