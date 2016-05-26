@@ -75,19 +75,6 @@ router.post('/checkouts', function (req, res) {
   var cardholderName = req.body.cardholderName;
   var startDate = new Date(Date.UTC(2016, 9, 6, 0, 0, 0));
 
-  gateway.customer.create({
-  firstName: "Christy",
-  lastName: "James",
-  email: "christy.james@mailinator.com",
-  cardholderName: cardholderName,
-},function (err, result) {
-  result.success;
-  // true
-
-  result.customer.id;
-  // e.g. 494019
-});
-
   gateway.subscription.create({
     paymentMethodNonce: nonce,
     planId: "four_month_membership_id",
@@ -97,9 +84,32 @@ router.post('/checkouts', function (req, res) {
   });
   
   gateway.transaction.sale({
-    amount: amount,
-    paymentMethodNonce: nonce
-  }, function (err, result) {
+  amount: amount,
+  paymentMethodNonce: nonce,
+  customer: {
+    firstName: "Drew",
+    lastName: "Smith",
+    company: "Braintree",
+    phone: "312-555-1234",
+    fax: "312-555-12346",
+    website: "http://www.example.com",
+    email: "drew@example.com"
+  },
+  billing: {
+    firstName: "Paul",
+    lastName: "Smith",
+    company: "Braintree",
+    streetAddress: "1 E Main St",
+    extendedAddress: "Suite 403",
+    locality: "Chicago",
+    region: "IL",
+    postalCode: "60622",
+    countryCodeAlpha2: "US"
+  },
+  options: {
+    storeInVaultOnSuccess: true
+  },
+}, function (err, result) {
     if (result.success || result.transaction) {
       res.redirect('checkouts/' + result.transaction.id);
     } else {
@@ -107,7 +117,20 @@ router.post('/checkouts', function (req, res) {
       req.flash('error', {msg: formatErrors(transactionErrors)});
       res.redirect('checkouts/new');
     }
-  });
+});
+
+  // gateway.transaction.sale({
+  //   amount: amount,
+  //   paymentMethodNonce: nonce
+  // }, function (err, result) {
+  //   if (result.success || result.transaction) {
+  //     res.redirect('checkouts/' + result.transaction.id);
+  //   } else {
+  //     transactionErrors = result.errors.deepErrors();
+  //     req.flash('error', {msg: formatErrors(transactionErrors)});
+  //     res.redirect('checkouts/new');
+  //   }
+  // });
 });
 
 module.exports = router;
