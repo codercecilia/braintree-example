@@ -37,15 +37,9 @@ block content
             tr
               th Number of Months
               td= subscription.numberOfBillingCycles
-            
-      if subscription.transactions.customerDetails
-        section
-          h5 Customer Information
-          table(cellpadding="0" cellspacing="0")
-          tbody
             tr
-              th Customer Details
-              td= subscription.transactions.customer.firstName
+              th Customer Name
+              td= subscription.customer.firstName
       //       tr
       //         th type
       //         td= transaction.type
