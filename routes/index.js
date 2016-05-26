@@ -73,7 +73,7 @@ router.post('/checkouts', function (req, res) {
   var amount = req.body.amount; // In production you should not take amounts directly from clients
   var nonce = req.body.payment_method_nonce;
   var cardholderName = req.body.cardholderName;
-  var startDate = new Date(Date.UTC(2016, 9, 6, 0, 0, 0));
+  var startDate = new Date(Date.UTC(2016, 8, 6, 0, 0, 0));
 
   // gateway.customer.create({
   // id: "customer_125",
