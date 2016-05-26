@@ -19,7 +19,7 @@ DropDown.prototype = {
             var opt = $(this);
             obj.val = opt.text();
             obj.index = opt.index();
-            obj.placeholder.text('Gender: ' + obj.val);
+            obj.placeholder.text(obj.val);
         });
     },
     getValue: function() {
