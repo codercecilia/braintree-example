@@ -66,6 +66,7 @@ router.get('/checkouts/:id', function (req, res) {
 
 router.post('/checkouts', function (req, res) {
   var transactionErrors;
+  var plan = req.body.selectedPlan;
   var firstName = req.body.firstName;
   var lastName = req.body.lastName;
   var email = req.body.email;
@@ -92,7 +93,7 @@ router.post('/checkouts', function (req, res) {
       var token = result.customer.paymentMethods[0].token;
       gateway.subscription.create({
         paymentMethodToken: token,
-        planId: "four_month_membership_id",
+        planId: plan,
         firstBillingDate: startDate
       }, function (err, result) {
           if (result.success || result.subscription) {
