@@ -86,7 +86,7 @@ router.get('/checkouts/:id', function (req, res) {
 
 router.post('/checkouts', function (req, res) {
   var transactionErrors;
-  var amount = req.body.amount; // In production you should not take amounts directly from clients
+  // var amount = req.body.amount; // In production you should not take amounts directly from clients
   var nonce = req.body.payment_method_nonce;
   var startDate = new Date(Date.UTC(2016, 8, 6, 0, 0, 0));
 
@@ -103,20 +103,20 @@ router.post('/checkouts', function (req, res) {
   }, function (err, result) {
     if (result.success) {
       var token = result.customer.paymentMethods[0].token;
-        gateway.subscription.create({
-          paymentMethodToken: token,
-          planId: "four_month_membership_id",
-          firstBillingDate: startDate
-        }, function (err, result) {
-            if (result.success || result.subscription) {
-              res.redirect('checkouts/' + result.subscription.id);
-          } else {
-              transactionErrors = result.errors.deepErrors();
-              req.flash('error', {msg: formatErrors(transactionErrors)});
-              res.redirect('checkouts/new');
-            }
+      gateway.subscription.create({
+        paymentMethodToken: token,
+        planId: "four_month_membership_id",
+        firstBillingDate: startDate
+      }, function (err, result) {
+          if (result.success || result.subscription) {
+            res.redirect('checkouts/' + result.subscription.id);
+        } else {
+            transactionErrors = result.errors.deepErrors();
+            req.flash('error', {msg: formatErrors(transactionErrors)});
+            res.redirect('checkouts/new');
+          }
         });
-    } else {
+  } else {
       res.redirect('/');
     }
   });
