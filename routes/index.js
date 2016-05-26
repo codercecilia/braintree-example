@@ -87,7 +87,7 @@ router.get('/checkouts/:id', function (req, res) {
 router.post('/checkouts', function (req, res) {
   var transactionErrors;
   // var amount = req.body.amount; // In production you should not take amounts directly from clients
-  var firstName: req.body.firstName;
+  var firstName = req.body.firstName;
   var nonce = req.body.payment_method_nonce;
   var startDate = new Date(Date.UTC(2016, 8, 6, 0, 0, 0));
 
