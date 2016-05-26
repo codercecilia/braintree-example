@@ -1,20 +1,9 @@
 'use strict';
 
-// nitty gritty //
 var express = require('express');
 var braintree = require('braintree');
 var router = express.Router(); // eslint-disable-line new-cap
 var gateway = require('../lib/gateway');
-
-// var TRANSACTION_SUCCESS_STATUSES = [
-//   braintree.Transaction.Status.Authorizing,
-//   braintree.Transaction.Status.Authorized,
-//   braintree.Transaction.Status.Settled,
-//   braintree.Transaction.Status.Settling,
-//   braintree.Transaction.Status.SettlementConfirmed,
-//   braintree.Transaction.Status.SettlementPending,
-//   braintree.Transaction.Status.SubmittedForSettlement
-// ];
 
   var SUBSCRIPTION_SUCCESS_STATUSES = [
     braintree.Subscription.Status.Active,
@@ -35,12 +24,8 @@ function formatErrors(errors) {
   return formattedErrors;
 }
 
-// function createResultObject(transaction) {
 function createResultObject(subscription) {
   var result;
-  // var status = transaction.status;
-
-  // if (TRANSACTION_SUCCESS_STATUSES.indexOf(status) !== -1) {
   var status = subscription.status;
 
   if (SUBSCRIPTION_SUCCESS_STATUSES.indexOf(status) !== -1) {
@@ -72,11 +57,6 @@ router.get('/checkouts/new', function (req, res) {
 
 router.get('/checkouts/:id', function (req, res) {
   var result;
-  // var transactionId = req.params.id;
-  // gateway.transaction.find(transactionId, function (err, transaction) {
-  //   result = createResultObject(transaction);
-  //   res.render('checkouts/show', {transaction: transaction, result: result});
-  // });
   var subscriptionId = req.params.id;
   gateway.subscription.find(subscriptionId, function (err, subscription) {
     result = createResultObject(subscription);
@@ -86,20 +66,26 @@ router.get('/checkouts/:id', function (req, res) {
 
 router.post('/checkouts', function (req, res) {
   var transactionErrors;
-  // var amount = req.body.amount; // In production you should not take amounts directly from clients
   var firstName = req.body.firstName;
+  var lastName = req.body.lastName;
+  var email = req.body.email;
+  var phoneNumber = req.body.phone;
+  var childFirstName = req.body.childfirstname;
+  var childLastName = req.body.childlastname;
+  var childAge = req.body.childage;
+  var initialCourse = req.body.initialcourse;
   var nonce = req.body.payment_method_nonce;
   var startDate = new Date(Date.UTC(2016, 8, 6, 0, 0, 0));
 
   gateway.customer.create({
   paymentMethodNonce: nonce,
   firstName: firstName,
-  lastName: "Ramirez",
+  lastName: lastName,
   customFields: {
-    initialcourse: "Introduction to Scratch",
-    childage: "8",
-    childlastname: "Ramirez",
-    childfirstname: "Isabella"  
+    initialcourse: initialCourse,
+    childage: childAge,
+    childlastname: childLastName,
+    childfirstname: childFirstName  
   }
   }, function (err, result) {
     if (result.success) {
