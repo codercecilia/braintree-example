@@ -1610,6 +1610,7 @@ header a,
   font-size: 16px;
   /*font-family: "BT Mono bold", "Helvetica Neue", Helvetica, Sans-serif;*/
   font-family: "Proxima Nova", Sans-serif;
+  font-weight: 600;
   opacity: .5; }
   header.main .braintree {
     display: none; }
