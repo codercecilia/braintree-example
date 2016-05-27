@@ -1949,7 +1949,7 @@ aside.drawer {
 select.custom-dropdown {
  -webkit-appearance: none;  /*REMOVES DEFAULT CHROME & SAFARI STYLE*/
  -moz-appearance: none;  /*REMOVES DEFAULT FIREFOX STYLE*/
- border: 2px solid #c0c0c0;  /*REMOVES BORDER*/
+ border: 1px solid #c0c0c0;  /*REMOVES BORDER*/
  /*background-color: #c0c0c0;*/
  color: #c0c0c0;
  -webkit-border-radius: 2px;
