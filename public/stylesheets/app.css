@@ -1537,7 +1537,7 @@ header .fill {
 .logo {
   height: 40px;
   width: 40px;
-  margin-top: 8px;
+  margin-top: 2px;
   background: url(../images/logo.png) no-repeat top left
 }
 
