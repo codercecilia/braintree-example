@@ -1559,7 +1559,9 @@ header a,
 .braintree {
   background-color: #fff;
   padding: 3px 8px;
-  margin: 0 -8px; }
+  margin: 0 -8px; 
+  text-transform: uppercase;
+}
 
 .pseudoshop {
   -webkit-transition: color 160ms ease;
