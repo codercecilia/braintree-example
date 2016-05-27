@@ -93,7 +93,7 @@ router.post('/checkouts', function (req, res) {
   }, function (err, result) {
     
     var transactionErrors = result.errors.deepErrors();
-    if (transactionErrors) {
+    if (transactionErrors.length > 1) {
       req.flash('error', {msg: formatErrors(transactionErrors)});
       res.redirect('checkouts/new');
     }
