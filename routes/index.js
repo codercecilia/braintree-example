@@ -91,6 +91,11 @@ router.post('/checkouts', function (req, res) {
     childfirstname: childFirstName  
   }
   }, function (err, result) {
+    
+    customerObjErrors = result.errors.deepErrors();
+    req.flash('error', {msg: formatErrors(customerObjErrors)});
+    res.redirect('checkouts/new');
+    
     if (result.success) {
       var token = result.customer.paymentMethods[0].token;
       gateway.subscription.create({
@@ -98,6 +103,9 @@ router.post('/checkouts', function (req, res) {
         planId: plan,
         firstBillingDate: startDate
       }, function (err, result) {
+          subscriptionErrors = result.errors.deepErrors();
+          req.flash('error', {msg: formatErrors(subscriptionErrors)});
+          res.redirect('checkouts/new');
           if (result.success || result.subscription) {
             res.redirect('checkouts/' + result.subscription.id);
         } else {
