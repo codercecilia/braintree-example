@@ -867,7 +867,7 @@ body {
 
 h1 {
   color: #82D2FF;
-  font-family: "Avenir", Sans-serif;
+  font-family: "Proxima Nova", Sans-serif;
   font-weight: normal;
   line-height: 1.3;
   margin: 0; }
@@ -918,7 +918,7 @@ ol {
   padding: 0; }
 
 strong {
-  font-family: "Open Sans semibold", "Avenir", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: "Proxima Nova", Sans-serif;
   font-weight: normal; }
 
 a {
@@ -933,7 +933,7 @@ a {
     color: #5CD493;
     border-color: #5CD493; }
   p a, li a {
-    font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
+    font-family: "Proxima Nova", Sans-serif;    
     border-bottom: solid 1px #DEE2E5;
     padding: .2em .1em;
     margin: 0 -.1em; }
@@ -1222,7 +1222,7 @@ section {
   border-radius: 2px;
   display: inline-block;
   color: #fff;
-  font-family: "BT Mono bold", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: "Proxima Nova", Sans-serif;
   font-size: 16px;
   letter-spacing: 0;
   line-height: normal;
@@ -1340,7 +1340,7 @@ label {
   cursor: pointer;
   display: block;
   font-size: 16px;
-  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "Proxima Nova", Sans-serif;
   font-weight: 300;
   padding: 12px 14px;
   position: relative;
@@ -1530,7 +1530,7 @@ input {
   position: absolute;
   top: 50%;
   right: 0px;
-  font-family: "Open Sans light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: "Proxima Nova", Sans-serif;
   font-size: 20px;
   display: block;
   line-height: 0; }
@@ -1577,10 +1577,11 @@ header a,
   order: 2;
   -ms-flex-order: 2;
   color: #393536;
-  font-family: "Open Sans regular", "Avenir", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: "Proxima Nova", Sans-serif;
   text-align: left; }
   .pseudoshop strong {
-    font-family: "Open Sans bold", "Avenir", "Helvetica Neue", Helvetica, Sans-serif; }
+    font-family: "Proxima Nova", Sans-serif; 
+  }
   @media (min-width: 641px) {
     .pseudoshop {
       -webkit-box-ordinal-group: 1;
@@ -1647,7 +1648,7 @@ header a,
     animation-delay: 0s; }
 
 .notice-wrapper {
-  font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: "Proxima Nova", Sans-serif;
   text-align: center;
   width: 100%;
   overflow: hidden; }
@@ -1706,11 +1707,12 @@ td {
 th {
   color: #707073;
   font-weight: normal;
-  font-family: "BT Mono", "Helvetica Neue", Helvetica, Sans-serif; }
+  font-family: "Proxima Nova", Sans-serif;
+}
 
 td {
   color: #393536;
-  font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: "Proxima Nova", Sans-serif;
   width: 60%;
   padding: .6em 0 .6em .6em; }
 
@@ -1937,7 +1939,7 @@ aside.drawer {
     aside.drawer article:before {
       display: block; } }
   aside.drawer h5 {
-    font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
+    font-family: "Proxima Nova", Sans-serif;
     color: #fff;
     line-height: 1.3em;
     font-size: 16px;
