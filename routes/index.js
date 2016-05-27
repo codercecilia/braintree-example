@@ -92,12 +92,11 @@ router.post('/checkouts', function (req, res) {
   }
   }, function (err, result) {
     
-    var errors = result.errors;
-    var numOfErrors = result.errors.for('customer').length;
-    if (numOfErrors > 1)
-      req.flash('error', {msg: formatErrors(errors)});
-      res.redirect('checkouts/new');  
-  
+    var transactionErrors = result.errors.deepErrors();
+    if (transactionErrors) {
+      req.flash('error', {msg: formatErrors(transactionErrors)});
+      res.redirect('checkouts/new');
+    }
     if (result.success) {
       var token = result.customer.paymentMethods[0].token;
       gateway.subscription.create({
