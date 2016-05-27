@@ -105,11 +105,11 @@ router.post('/checkouts', function (req, res) {
         planId: plan,
         firstBillingDate: startDate
       }, function (err, result) {
-          var errors = result.errors;
-          var numOfErrors = result.errors.for('subscription').length;
-          if (numOfErrors > 1)
-            req.flash('error', {msg: formatErrors(errors)});
-            res.redirect('checkouts/new'); 
+          // var errors = result.errors;
+          // var numOfErrors = result.errors.for('subscription').length;
+          // if (numOfErrors > 1)
+          //   req.flash('error', {msg: formatErrors(errors)});
+          //   res.redirect('checkouts/new'); 
             
           if (result.success || result.subscription) {
             res.redirect('checkouts/' + result.subscription.id);
