@@ -6,12 +6,6 @@ block content
     form#payment-form(action="/checkouts", method="post")
       h1 Choose Membership Plan
       section
-        select.cs-select.cs-skin-border
-          option(value='', disabled='', selected='') Preferred contact method
-          option(value='email') E-Mail
-          option(value='twitter') Twitter
-          option(value='linkedin') LinkedIn
-      section
         select(class="custom-dropdown" name="selectedPlan")
           option(value="four_month_membership_id") $349/month - Four Month Membership
           option(value="six_month_membership_id") $324/month - Six Month Membership
@@ -60,16 +54,6 @@ block content
 
       button.button(type="submit")
         span Submit Payment
-  
-  script(src='../public/javascript/classie.js')
-  script(src='../public/javascript/selectFx.js')
-  script.
-    (function() {
-      [].slice.call(
-        document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
-          new SelectFx(el);
-        });
-      })();
   
   script(src="https://js.braintreegateway.com/v2/braintree.js")
   script.
