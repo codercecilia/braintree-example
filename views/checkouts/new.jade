@@ -65,7 +65,12 @@ block content
         span Submit Payment
   script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js")
   script.
-    ($function () {
+    (obj.dd.on('click', function(event){
+		  $(this).toggleClass('active');
+		  return false;
+	  });
+    
+    $function () {
       var dd = new DropDown($('#dd'));
       $(document).click(function() {
         $('.wrapper-dropdown-3').removeClass('active');
