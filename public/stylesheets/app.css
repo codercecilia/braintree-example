@@ -1534,6 +1534,13 @@ input {
 header .fill {
   text-align: left; }
 
+.logo {
+  height: 25px;
+  width: 135px;
+  margin-top: 8px;
+  background: url(../logo.png) no-repeat top left
+}
+
 header a,
 .pseudoshop,
 .braintree {
