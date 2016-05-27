@@ -92,10 +92,12 @@ router.post('/checkouts', function (req, res) {
   }
   }, function (err, result) {
     
-    customerObjErrors = result.errors.deepErrors();
-    req.flash('error', {msg: formatErrors(customerObjErrors)});
-    res.redirect('checkouts/new');
-    
+    var errors = result.errors;
+    var numOfErrors = result.errors.for('customer').length;
+    if (numOfErrors > 1)
+      req.flash('error', {msg: formatErrors(errors)});
+      res.redirect('checkouts/new');  
+  
     if (result.success) {
       var token = result.customer.paymentMethods[0].token;
       gateway.subscription.create({
@@ -103,13 +105,16 @@ router.post('/checkouts', function (req, res) {
         planId: plan,
         firstBillingDate: startDate
       }, function (err, result) {
-          subscriptionErrors = result.errors.deepErrors();
-          req.flash('error', {msg: formatErrors(subscriptionErrors)});
-          res.redirect('checkouts/new');
+          var errors = result.errors;
+          var numOfErrors = result.errors.for('subscription').length;
+          if (numOfErrors > 1)
+            req.flash('error', {msg: formatErrors(errors)});
+            res.redirect('checkouts/new'); 
+            
           if (result.success || result.subscription) {
             res.redirect('checkouts/' + result.subscription.id);
         } else {
-            transactionErrors = result.errors.deepErrors();
+            var transactionErrors = result.errors.deepErrors();
             req.flash('error', {msg: formatErrors(transactionErrors)});
             res.redirect('checkouts/new');
           }
