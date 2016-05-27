@@ -6,16 +6,11 @@ block content
     form#payment-form(action="/checkouts", method="post")
       h1 Choose Membership Plan
       section
-        .wrapper-demo
-          #dd.wrapper-dropdown-3(tabindex='1')
-            span Transport
-            ul.dropdown
-              li
-                a(href='#') Classic mail
-              li
-                a(href='#') UPS Delivery
-              li
-                a(href='#') Private jet
+        select.cs-select.cs-skin-border
+          option(value='', disabled='', selected='') Preferred contact method
+          option(value='email') E-Mail
+          option(value='twitter') Twitter
+          option(value='linkedin') LinkedIn
       section
         select(class="custom-dropdown" name="selectedPlan")
           option(value="four_month_membership_id") $349/month - Four Month Membership
@@ -65,45 +60,7 @@ block content
 
       button.button(type="submit")
         span Submit Payment
-  script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js")
-  script.
-    (function DropDown(el) {
-      this.dd = el;
-      this.placeholder = this.dd.children('span');
-      this.opts = this.dd.find('ul.dropdown > li');
-      this.val = '';
-      this.index = -1;
-      this.initEvents();
-    }
   
-    DropDown.prototype = {
-        initEvents: function() {
-            var obj = this;
-            obj.dd.on('click', function(event) {
-                $(this).toggleClass('active');
-                return false;
-            });
-    
-            obj.opts.on('click', function() {
-                var opt = $(this);
-                obj.val = opt.text();
-                obj.index = opt.index();
-                obj.placeholder.text(obj.val);
-            });
-        },
-        getValue: function() {
-            return this.val;
-        },
-        getIndex: function() {
-            return this.index;
-        }
-    }
-    $function () {
-      var dd = new DropDown($('#dd'));
-      $(document).click(function() {
-        $('.wrapper-dropdown-3').removeClass('active');
-      });
-    })()
     
   script(src="https://js.braintreegateway.com/v2/braintree.js")
   script.
