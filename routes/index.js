@@ -92,32 +92,26 @@ router.post('/checkouts', function (req, res) {
   }
   }, function (err, result) {
     
-    var transactionErrors = result.errors.deepErrors();
-    if (transactionErrors.length > 1) {
-      req.flash('error', {msg: formatErrors(transactionErrors)});
-      res.redirect('checkouts/new');
-    }
-    if (result.success) {
-      var token = result.customer.paymentMethods[0].token;
-      gateway.subscription.create({
-        paymentMethodToken: token,
-        planId: plan,
-        firstBillingDate: startDate
-      }, function (err, result) {
-          // var errors = result.errors;
-          // var numOfErrors = result.errors.for('subscription').length;
-          // if (numOfErrors > 1)
-          //   req.flash('error', {msg: formatErrors(errors)});
-          //   res.redirect('checkouts/new'); 
-            
-          if (result.success || result.subscription) {
-            res.redirect('checkouts/' + result.subscription.id);
-        } else {
-            var transactionErrors = result.errors.deepErrors();
-            req.flash('error', {msg: formatErrors(transactionErrors)});
-            res.redirect('checkouts/new');
-          }
-        });
+      var transactionErrors = result.errors.deepErrors();
+      if (transactionErrors.length > 1) {
+        req.flash('error', {msg: formatErrors(transactionErrors)});
+        res.redirect('checkouts/new');
+      }
+      if (result.success) {
+        var token = result.customer.paymentMethods[0].token;
+        gateway.subscription.create({
+          paymentMethodToken: token,
+          planId: plan,
+          firstBillingDate: startDate
+        }, function (err, result) {
+            if (result.success || result.subscription) {
+              res.redirect('checkouts/' + result.subscription.id);
+          } else {
+              var transactionErrors = result.errors.deepErrors();
+              req.flash('error', {msg: formatErrors(transactionErrors)});
+              res.redirect('checkouts/new');
+            }
+          });
   } else {
       res.redirect('/');
     }
