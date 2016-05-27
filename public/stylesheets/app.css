@@ -1952,13 +1952,13 @@ select.custom-dropdown {
  border: 2px solid #c0c0c0;  /*REMOVES BORDER*/
  /*background-color: #c0c0c0;*/
  color: #c0c0c0;
- -webkit-border-radius: 5px;
- border-radius: 5px;
+ -webkit-border-radius: 2px;
+ border-radius: 2px;
  font-size: 16px;
  padding: 10px;
  width: 60%;
  cursor: pointer;
- background: #fff url("drop-down-arrow.png") no-repeat right center;
+ background: #fff url("../images/drop-down-arrow.png") no-repeat right center;
  background-size: 40px 37px; /*TO ACCOUNT FOR @2X IMAGE FOR RETINA */
 }
 
