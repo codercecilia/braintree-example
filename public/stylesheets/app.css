@@ -2082,3 +2082,8 @@ aside.drawer {
 .no-pointerevents .wrapper-dropdown-3.active .dropdown {
     display: block;
 }
+
+.wrapper-dropdown-3:focus .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+}
