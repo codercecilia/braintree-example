@@ -65,11 +65,11 @@ block content
   script(src='../public/javascript/selectFx.js')
   script.
     (function() {
-      [].slice.ca
-      ll( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
-        new SelectFx(el);
-      } );
-    })();
+      [].slice.call(
+        document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
+          new SelectFx(el);
+        });
+      })();
   
   script(src="https://js.braintreegateway.com/v2/braintree.js")
   script.
