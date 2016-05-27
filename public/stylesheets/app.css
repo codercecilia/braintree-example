@@ -1954,11 +1954,11 @@ select.custom-dropdown {
  color: #fff;
  -webkit-border-radius: 5px;
  border-radius: 5px;
- font-size: 18px;
+ font-size: 16px;
  padding: 10px;
- width: 50%;
+ width: 60%;
  cursor: pointer;
- background: #c0c0c0 url("drop-down-arrow.png") no-repeat right center;
+ background: #fff url("drop-down-arrow.png") no-repeat right center;
  background-size: 40px 37px; /*TO ACCOUNT FOR @2X IMAGE FOR RETINA */
 }
 
