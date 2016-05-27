@@ -1007,7 +1007,7 @@ header.main {
   border-bottom: solid 1px #DEE2E5; }
   @media (min-width: 1025px) {
     header.main {
-      background-color: transparent;
+      background-color: #fff;
       border-bottom: none; } }
 
 header {
