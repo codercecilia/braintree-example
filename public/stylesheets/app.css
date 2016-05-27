@@ -1,6 +1,6 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
-  font-family: sans-serif;
+  font-family: "Proxima Nova", Sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; }
 
@@ -857,7 +857,7 @@ td, th {
 body {
   background-color: #fff;
   color: #393536;
-  font-family: "BT Mono", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: "Proxima Nova", Sans-serif;
   font-size: 16px;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
@@ -867,14 +867,14 @@ body {
 
 h1 {
   color: #82D2FF;
-  font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: "Avenir", Sans-serif;
   font-weight: normal;
   line-height: 1.3;
   margin: 0; }
 
 h2, h3, h4, h5, h6 {
   color: #393536;
-  font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: "Proxima Nova", Sans-serif;
   font-weight: normal;
   line-height: 1.3;
   margin: 0; }
@@ -884,7 +884,7 @@ h2, h3, h4, h5, h6 {
 
 h1,
 h2 {
-  font-family: "BT Mono medium", "Helvetica Neue", Helvetica, Sans-serif;
+  font-family: "Proxima Nova", Sans-serif;
   letter-spacing: -1px; }
 
 h1 {
