@@ -82,6 +82,8 @@ router.post('/checkouts', function (req, res) {
   paymentMethodNonce: nonce,
   firstName: firstName,
   lastName: lastName,
+  email: email,
+  phone: phoneNumber,
   customFields: {
     initialcourse: initialCourse,
     childage: childAge,
