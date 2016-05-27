@@ -4,13 +4,13 @@ block content
   .wrapper: .checkout.container: .content
     header
     form#payment-form(action="/checkouts", method="post")
-      h1 Choose Membership Plan
+      h2 Choose Membership Plan
       section
         select(class="custom-dropdown" name="selectedPlan")
           option(value="four_month_membership_id") $349/month - Four Month Membership
           option(value="six_month_membership_id") $324/month - Six Month Membership
           option(value="annual_membership_id") $299/month - Annual Membership
-      h1 Your Information
+      h2 Your Information
       section
         label(for="firstName")
           span.input-label Name
@@ -28,7 +28,7 @@ block content
           span.input-label Phone Number
           .input-wrapper.name-wrapper
           input#phone(name="phone" type="tel" min="10" placeholder="Your Phone Number")
-      h1 Your Coderkid
+      h2 Your Coderkid
       section
         label(for="childfirstname")
           span.input-label Coderkid First Name
@@ -42,14 +42,14 @@ block content
           span.input-label Age
           .input-wrapper.name-wrapper
           input#childage(name="childage" type="tel"  placeholder="Age")
-      h1 Choose Initial Course
+      h2 Choose Initial Course
       section
         select(class="custom-dropdown" name="initialcourse")
           option(value="Introduction to Scratch") Introduction to Scratch
           option(value="Introduction to Minecraft Mod in Java") Introduction to Minecraft Mod in Java
           option(value="Introduction to Mobile App Design") Introduction to Mobile App Design
       
-      h1 Checkout 
+      h2 Checkout 
       section
         .bt-drop-in-wrapper
           #bt-dropin
