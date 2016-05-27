@@ -1535,8 +1535,8 @@ header .fill {
   text-align: left; }
 
 .logo {
-  height: 100px;
-  width: 100px;
+  height: 16px;
+  width: 16px;
   margin-top: 8px;
   background: url(../images/logo.png) no-repeat top left
 }
