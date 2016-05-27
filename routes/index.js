@@ -91,12 +91,6 @@ router.post('/checkouts', function (req, res) {
     childfirstname: childFirstName  
   }
   }, function (err, result) {
-    
-      var transactionErrors = result.errors.deepErrors();
-      if (transactionErrors.length > 1) {
-        req.flash('error', {msg: formatErrors(transactionErrors)});
-        res.redirect('checkouts/new');
-      }
       if (result.success) {
         var token = result.customer.paymentMethods[0].token;
         gateway.subscription.create({
