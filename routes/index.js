@@ -32,7 +32,7 @@ function createResultObject(subscription) {
     result = {
       header: 'Welcome to Coder Kids!',
       icon: 'success',
-      message: 'Your membership enrollment is now complete. You should receive an email with membership details and instructions on scheduling your Coderkid. Please review membership details and contact us at info@coder-kids.com with any questions. '
+      message: 'Your membership enrollment is now complete. Please review membership details and contact us at info@coder-kids.com with any questions. You should receive an email with instructions on scheduling your Coderkid soon.  '
     };
   } else {
     result = {
