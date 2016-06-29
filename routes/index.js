@@ -95,8 +95,7 @@ router.post('/checkouts', function (req, res) {
         var token = result.customer.paymentMethods[0].token;
         gateway.subscription.create({
           paymentMethodToken: token,
-          planId: plan,
-          firstBillingDate: startDate
+          planId: plan
         }, function (err, result) {
             if (result.success || result.subscription) {
               res.redirect('checkouts/' + result.subscription.id);
