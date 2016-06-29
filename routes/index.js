@@ -32,13 +32,13 @@ function createResultObject(subscription) {
     result = {
       header: 'Welcome to Coder Kids!',
       icon: 'success',
-      message: 'Your membership enrollment is now complete. Please review membership details and contact us at info@coder-kids.com with any questions. Once you have reviewed your membership details, click the button below to schedule your Coderkid.'
+      message: 'Your membership enrollment is now complete. Please review membership details and contact us at hello@coder-kids.com with any questions. Once you have reviewed your membership details, click the button below to schedule your CoderKid.'
     };
   } else {
     result = {
       header: 'Transaction Failed',
       icon: 'fail',
-      message: 'There is an issue with this transaction. Please contact us at info@coder-kids.com.'
+      message: 'There is an issue with this transaction. Please contact us at hello@coder-kids.com.'
     };
   }
 
