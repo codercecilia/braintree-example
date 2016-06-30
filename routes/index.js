@@ -103,7 +103,7 @@ router.post('/checkouts', function (req, res) {
           } else {
               var transactionErrors = result.errors.deepErrors();
               req.flash('error', {msg: formatErrors(transactionErrors)});
-              res.redirect('checkouts/new');
+              res.redirect('checkouts/' + result.subscription.id);
             }
           });
   } else {
