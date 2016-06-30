@@ -4,7 +4,6 @@ block content
   .wrapper: .checkout.container: .content
     header
     form#payment-form(action="/checkouts", method="post")
-      h3 I agree to the Terms of Service.
       h1 Choose Membership Plan
       section
         select(class="custom-dropdown" name="selectedPlan")
@@ -56,7 +55,9 @@ block content
       section
         .bt-drop-in-wrapper
           #bt-dropin
-
+          
+      h3 I agree to the Terms of Service.
+      
       button.button(type="submit")
         span Submit Payment
   
