@@ -4,6 +4,9 @@ block content
   .wrapper: .checkout.container: .content
     header
     form#payment-form(action="/checkouts", method="post")
+      section
+      h3 I agree to the <a href="http://http://coder-kids.com/terms-of-service" target="_blank"> Terms of Service. </a>
+      
       h1 Choose Membership Plan
       section
         select(class="custom-dropdown" name="selectedPlan")
@@ -55,8 +58,6 @@ block content
       section
         .bt-drop-in-wrapper
           #bt-dropin
-          
-      h3 I agree to the Terms of Service.
       
       button.button(type="submit")
         span Submit Payment
