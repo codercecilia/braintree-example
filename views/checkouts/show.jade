@@ -1,5 +1,42 @@
-extends ../layout
+doctype html
+html
+  head
+    title Coder Kids Checkout
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="/stylesheets/app.css")
+    link(rel="stylesheet", href="/stylesheets/overrides.css")
+    script(type="text/javascript", src="/javascript/vendor/jquery-2.1.4.min.js")
+    script(type="text/javascript", src="/javascript/vendor/jquery.lettering-0.6.1.min.js")
+    script(type="text/javascript", src="/javascript/demo.js")
+    script.
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1098873253512316');
+      fbq('track', "PageView");
+    noscript
+      img(height='1', width='1', style='display:none', src='https://www.facebook.com/tr?id=1098873253512316&ev=PageView&noscript=1')
+    script.
+      // Purchase
+      // Track purchases or checkout flow completions (ex. landing on "Thank You" or confirmation page)
+      fbq('track', 'Purchase', {value: '99.00', currency: 'USD'});
+  body
+    header.main
+      .container.wide
+        .content.slim
+          .set
+            .fill
+              a.logo(href='http://coder-kids.com') 
+            .fit
+              a.braintree(href='http://coder-kids.com/courses' target='_blank') Courses
 
+      .notice-wrapper
+        if messages && messages.length > 0
+          .show.notice.error.notice-error
+            for msg in messages
+              span.notice-message= msg.msg
 block content
   .wrapper: .response.container: .content
     if result && result.message
