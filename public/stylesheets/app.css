@@ -1047,7 +1047,7 @@ article {
   align-self: stretch;
   -ms-flex-item-align: stretch;
   position: relative;
-  overflow: auto;
+  overflow: scroll;
   -webkit-overflow-scrolling: touch;
   z-index: 0; }
 
