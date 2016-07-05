@@ -1048,7 +1048,7 @@ article {
   -ms-flex-item-align: stretch;
   position: relative;
   overflow: auto;
-  -webkit-overflow-scrolling: auto;
+  -webkit-overflow-scrolling: touch;
   z-index: 0; }
 
 footer {
