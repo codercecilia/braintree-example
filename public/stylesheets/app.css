@@ -1091,17 +1091,12 @@ footer {
 .container {
   max-width: 46em;
   margin: auto;
-  width: 100%;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch; }
+  width: 100%;}
   .container.wide {
     max-width: 100%; }
 
 .content {
-  padding: 36px 12px; 
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
+  padding: 36px 12px; }
   .content.slim, .content.compact {
     padding: 12px; }
   @media (min-width: 641px) {
