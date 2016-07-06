@@ -3,7 +3,7 @@ extends ../layout
 block content
   .wrapper: .checkout.container: .content
     header
-    form#payment-form(action="/checkouts", method="post", style="-webkit-overflow-scrolling: touch;")
+    form#payment-form(action="/checkouts", method="post")
       h1 Choose Membership Plan
       section
         select(class="custom-dropdown" name="selectedPlan")
