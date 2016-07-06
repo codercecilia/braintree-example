@@ -1098,7 +1098,10 @@ footer {
     max-width: 100%; }
 
 .content {
-  padding: 36px 12px; }
+  padding: 36px 12px; 
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
   .content.slim, .content.compact {
     padding: 12px; }
   @media (min-width: 641px) {
