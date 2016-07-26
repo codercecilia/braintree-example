@@ -89,8 +89,7 @@ router.post('/checkouts', function (req, res) {
     initialcourse: initialCourse,
     childage: childAge,
     childlastname: childLastName,
-    childfirstname: childFirstName,
-    referralName: referralName
+    childfirstname: childFirstName
   }
   }, function (err, result) {
       if (result.success) {
