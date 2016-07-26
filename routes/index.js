@@ -71,6 +71,7 @@ router.post('/checkouts', function (req, res) {
   var lastName = req.body.lastName;
   var email = req.body.email;
   var phoneNumber = req.body.phone;
+  var referralName = req.body.referralName;
   var childFirstName = req.body.childfirstname;
   var childLastName = req.body.childlastname;
   var childAge = req.body.childage;
@@ -88,7 +89,8 @@ router.post('/checkouts', function (req, res) {
     initialcourse: initialCourse,
     childage: childAge,
     childlastname: childLastName,
-    childfirstname: childFirstName  
+    childfirstname: childFirstName,
+    referralName: referralName
   }
   }, function (err, result) {
       if (result.success) {
