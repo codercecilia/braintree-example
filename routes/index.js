@@ -77,7 +77,7 @@ router.post('/checkouts', function (req, res) {
   var childAge = req.body.childage;
   var initialCourse = req.body.initialcourse;
   var nonce = req.body.payment_method_nonce;
-  var startDate = new Date(Date.UTC(2016, 10, 3, 0, 0, 0));
+  var startDate = new Date(Date.UTC(2016, 9, 3, 0, 0, 0));
 
   gateway.customer.create({
   paymentMethodNonce: nonce,
