@@ -84,7 +84,7 @@ router.post('/checkouts', function (req, res) {
   firstName: firstName,
   lastName: lastName,
   email: email,
-  phone: phoneNumber
+  phone: phoneNumber,
   customFields: {
     initialcourse: initialCourse,
     childage: childAge,
