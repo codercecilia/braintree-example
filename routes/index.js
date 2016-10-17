@@ -77,7 +77,6 @@ router.post('/checkouts', function (req, res) {
   var childAge = req.body.childage;
   var initialCourse = req.body.initialcourse;
   var nonce = req.body.payment_method_nonce;
-  var startDate = new Date(Date.UTC(2016, 9, 16, 0, 0, 0));
 
   gateway.customer.create({
   paymentMethodNonce: nonce,
@@ -97,8 +96,7 @@ router.post('/checkouts', function (req, res) {
         var token = result.customer.paymentMethods[0].token;
         gateway.subscription.create({
           paymentMethodToken: token,
-          planId: plan,
-          firstBillingDate: startDate
+          planId: plan
         }, function (err, result) {
             if (result.success || result.subscription) {
               res.redirect('checkouts/' + result.subscription.id);
